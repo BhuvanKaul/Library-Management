@@ -1,0 +1,16 @@
+.container{
+    border: yellow solid;
+    display: flex;
+    gap: 1rem;
+}
+
+.container input{
+    flex: 1;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+
+.container button{
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}

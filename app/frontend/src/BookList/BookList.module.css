@@ -1,0 +1,40 @@
+.bookTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.bookTable th, .bookTable td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.bookTable th {
+    background-color: #f4f4f4;
+}
+
+.issueButton {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+}
+
+.issueButton:hover {
+  background-color: #0056b3;
+}
+
+.issueButton:active {
+    transform: scale(0.98);
+}
+
+.issueButton:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}

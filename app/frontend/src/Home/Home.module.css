@@ -1,0 +1,15 @@
+.header{
+    padding: 1rem;
+}
+.content{
+    display: inline-flex;
+    min-width: 100%;
+    flex: 1;
+    border: 2px black solid;
+    gap: 1rem;
+}
+
+.books{
+    flex:1;
+    padding: 1rem;
+}
