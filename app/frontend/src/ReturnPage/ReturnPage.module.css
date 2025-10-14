@@ -1,0 +1,78 @@
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.backLink {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.backLink:hover {
+    text-decoration: underline;
+}
+
+.container h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.container p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.booksTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+.booksTable th,
+.booksTable td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.booksTable th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+    color: #333;
+}
+
+.booksTable tbody tr:nth-of-type(even) {
+    background-color: #fafafa;
+}
+
+.booksTable tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.booksTable button {
+    background-color: #e53935;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.booksTable button:hover {
+    background-color: #c62828;
+}
+
+.booksTable button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

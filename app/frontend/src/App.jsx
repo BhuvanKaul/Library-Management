@@ -1,6 +1,9 @@
 import Home from "./Home/Home"
 import Login from "./Login/Login";
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import GoogleCallback from "./GoogleCallback/GoogleCallback";
+import ReturnsPage from "./ReturnPage/ReturnPage";
+import { BrowserRouter, createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { UserProvider } from "./userContext";
 
 function App() {
     const router = createBrowserRouter([
@@ -11,11 +14,21 @@ function App() {
         {
             path:'/',
             element: <Login/>
+        },
+        {
+            path: '/auth/callback',
+            element: <GoogleCallback />
+        },
+        { 
+            path: '/returns', 
+            element: <ReturnsPage /> 
         }
     ])
 
     return(
-        <RouterProvider router={router}/>
+        <UserProvider>
+            <RouterProvider router={router}/>
+        </UserProvider>
     )
 }
 
