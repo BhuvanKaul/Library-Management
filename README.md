@@ -112,7 +112,7 @@ To enable Google Login:
 
 You'll need two `.env` files — one for backend and one for frontend.
 
-**Backend `.env`:**
+**Backend `.env`: in the root Library-Management directory**
 
 ```ini
 # Database Credentials
@@ -131,7 +131,7 @@ JWT_SECRET_KEY="a-very-long-and-super-secret-random-string"
 JWT_ALGORITHM="HS256"
 ```
 
-**Frontend `.env`:**
+**Frontend `.env`: in app/frontend**
 
 ```ini
 VITE_GOOGLE_CLIENT_ID="YOUR_CLIENT_ID_FROM_GOOGLE_CONSOLE"
@@ -141,14 +141,14 @@ VITE_GOOGLE_CLIENT_ID="YOUR_CLIENT_ID_FROM_GOOGLE_CONSOLE"
 
 #### **Step F: Set Up the Database**
 
-With your backend virtual environment activated:
+With your backend virtual environment activated:, run the following commands from the root Library-Management directory
 
 ```bash
 # Create the database and tables
 python db_migrate.py
 
 # Seed the database with sample data
-python seed.py
+python db_seed.py
 ```
 
 ---
