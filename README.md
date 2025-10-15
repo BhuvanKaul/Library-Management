@@ -82,7 +82,7 @@ pip install -r requirements.txt
 
 ```bash
 # Open a new terminal
-cd frontend
+cd app/frontend
 
 # Install Node dependencies
 npm install
