@@ -1,14 +1,18 @@
 import psycopg2
 from psycopg2 import pool, OperationalError
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 try:
     dbPool = psycopg2.pool.SimpleConnectionPool(
         1, 10,
-        dbname="library",
-        user="postgres",
-        password="Bhuvan@2004",
-        host="localhost",
-        port="5432"
+        dbname=os.getenv("DB_NAME"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        host=os.getenv("DB_HOST"),
+        port=os.getenv("DB_PORT")
     )
 except OperationalError as err:
     print("Could not connect to DB", err)
