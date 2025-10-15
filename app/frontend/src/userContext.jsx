@@ -26,6 +26,16 @@ export const UserProvider = ({ children }) => {
         setUser(userData);
     };
 
+    const loginAsAdmin = () => {
+        const adminUser = {
+            name: 'Admin',
+            email: 'admin@library.system',
+            isAdmin: true // This flag is very important!
+        };
+        localStorage.setItem('user', JSON.stringify(adminUser));
+        setUser(adminUser);
+    };
+
     const logout = () => {
         localStorage.removeItem('user');
         localStorage.removeItem('authToken');
@@ -33,7 +43,7 @@ export const UserProvider = ({ children }) => {
     };
 
     return (
-        <UserContext.Provider value={{ user, isLoading, login, logout }}>
+        <UserContext.Provider value={{ user, isLoading, login, logout, loginAsAdmin }}>
             {children}
         </UserContext.Provider>
     );

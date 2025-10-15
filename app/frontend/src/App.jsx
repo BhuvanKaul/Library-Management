@@ -2,6 +2,7 @@ import Home from "./Home/Home"
 import Login from "./Login/Login";
 import GoogleCallback from "./GoogleCallback/GoogleCallback";
 import ReturnsPage from "./ReturnPage/ReturnPage";
+import AdminDashboard from "./AdminDashboard/AdminDashboard";
 import { BrowserRouter, createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { UserProvider } from "./userContext";
 
@@ -22,6 +23,10 @@ function App() {
         { 
             path: '/returns', 
             element: <ReturnsPage /> 
+        },
+        {
+            path: '/admin',
+            element: <AdminDashboard />
         }
     ])
 

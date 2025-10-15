@@ -1,8 +1,13 @@
+import React, { useContext } from 'react'; 
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../userContext.jsx';
 import styles from './Login.module.css'
 
 function Login() {
+    const { loginAsAdmin } = useContext(UserContext); 
+    const navigate = useNavigate(); 
 
-    const handleGoogleLogin = ()=>{
+    const handleGoogleLogin = () => {
         const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
         const redirectUri = 'http://localhost:5173/auth/callback';
 
@@ -16,16 +21,24 @@ function Login() {
         window.location.href = authUrl;
     }
 
-   return (
-    <div className={styles.loginContainer}>
-        <h2>Library Management System</h2>
-        <p>Please sign in to continue</p>
-        <button className={styles.googleLoginButton} onClick={handleGoogleLogin}>
-            <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" />
-            Sign in with Google
-        </button>
-    </div>
+    const handleAdminLogin = () => {
+        loginAsAdmin();
+        navigate('/admin');
+    };
+
+    return (
+        <div className={styles.loginContainer}>
+            <h2>Library Management System</h2>
+            <p>Please sign in to continue</p>
+            <button className={styles.googleLoginButton} onClick={handleGoogleLogin}>
+                <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" />
+                Sign in with Google
+            </button>
+            <button onClick={handleAdminLogin} className={styles.adminLoginButton}>
+                Sign in as Admin
+            </button>
+        </div>
     );
 }
 
-export default Login
+export default Login;

@@ -15,7 +15,7 @@ except OperationalError as err:
 
 
 def getBooks(type='all', availability='all', lang='all'):
-    if not pool:
+    if not dbPool:
         print("Databse Connection not available")
         return []
     
@@ -160,6 +160,57 @@ def return_book(book_id, user_email):
         
     except Exception as e:
         print(f"Database error in return_book: {e}")
+    finally:
+        if conn:
+            dbPool.putconn(conn)
+
+def get_all_issued_books():
+    conn = None
+    try:
+        conn = dbPool.getconn()
+        cursor = conn.cursor()
+        query = """
+            SELECT u.name, u.email, b.name, b.author
+            FROM issues i
+            JOIN users u ON i.user_id = u.user_id
+            JOIN books b ON i.book_id = b.book_id;
+        """
+        cursor.execute(query)
+        all_issues = cursor.fetchall()
+        cursor.close()
+        return all_issues
+    finally:
+        if conn:
+            dbPool.putconn(conn)
+
+def add_book(title: str, author: str, book_type: str, language: str, total_copies: int):
+    conn = None
+    try:
+        conn = dbPool.getconn()
+        cursor = conn.cursor()
+        query = """
+            INSERT INTO books (name, author, type, language, total_copies, copies_issued)
+            VALUES (%s, %s, %s, %s, %s, 0) RETURNING book_id;
+        """
+        cursor.execute(query, (title, author, book_type, language, total_copies))
+        new_book_id = cursor.fetchone()[0]
+        conn.commit()
+        cursor.close()
+        return {"book_id": new_book_id, "message": "Book added successfully"}
+    finally:
+        if conn:
+            dbPool.putconn(conn)
+
+def remove_book(book_id: int):
+    conn = None
+    try:
+        conn = dbPool.getconn()
+        cursor = conn.cursor()
+        query = "DELETE FROM books WHERE book_id = %s"
+        cursor.execute(query, (book_id,))
+        conn.commit()
+        cursor.close()
+        return {"message": "Book removed successfully"}
     finally:
         if conn:
             dbPool.putconn(conn)

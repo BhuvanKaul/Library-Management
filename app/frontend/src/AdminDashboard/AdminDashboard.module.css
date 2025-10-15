@@ -1,0 +1,119 @@
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.section {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #333;
+}
+
+.section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: #444;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+/* --- Add Book Form --- */
+.addForm {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.addForm input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    flex: 1;
+}
+
+.addForm input[type="number"] {
+    max-width: 120px;
+}
+
+.addForm button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.addForm button:hover {
+    background-color: #218838;
+}
+
+/* --- Tables --- */
+.booksTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.booksTable th,
+.booksTable td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.booksTable th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.booksTable tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* --- Buttons --- */
+.downloadButton {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    transition: background-color 0.2s;
+}
+
+.downloadButton:hover {
+    background-color: #0056b3;
+}
+
+.removeButton {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.removeButton:hover {
+    background-color: #c82333;
+}
